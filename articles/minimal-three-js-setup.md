@@ -3,7 +3,7 @@ title: "1分でミニマルなThree.js環境をつくる（TypeScript + React)"
 emoji: "🖥️"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["threejs", "React", "WebGL", "TypeScript"]
-published: false
+published: true
 ---
 
 ## モチベーション  
