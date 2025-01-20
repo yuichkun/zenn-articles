@@ -55,7 +55,7 @@ npm install -D @types/three
 5. （お好みで）生成されたファイルを整理
 
 
-`app.css` は削除し、`index.css` を↓ぐらいに書き換える（お好みで）
+`index.css` を↓ぐらいに書き換える（お好みで）
 ```css:index.css
 body {
   margin: 0;
@@ -84,6 +84,8 @@ export default App;
 ```
 
 これで一応完成🎉
+
+`npm run dev` で起動
 
 ![](/images/minimal-three-js-setup/red-box.png)
 
@@ -176,6 +178,8 @@ renderer.render(scene, camera);
 ```
 
 これで完成🎉
+
+`npm run dev` で起動
 
 ![](/images/minimal-three-js-setup/red-box.png)
 
