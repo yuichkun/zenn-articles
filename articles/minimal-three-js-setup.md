@@ -6,7 +6,7 @@ topics: ["threejs", "React", "WebGL", "TypeScript"]
 published: false
 ---
 
-# モチベーション  
+## モチベーション  
 
 three.jsをサクッと書き始める最小構成を作る方法をまとめました。
 もちろん他の方法も色々あると思いますが、この方法は1分でできて、そこそこニーズを満たせて、自由に拡張しやすいです。
@@ -18,8 +18,9 @@ three.jsをサクッと書き始める最小構成を作る方法をまとめま
 
 ️
 ☘️ こんな人にオススメ
-- とりあえずさっさと書き始めたい
+- とりあえずさっさとthree.jsを書き始めたい
 - メンテされてなさそうなあんまりよく分からないテンプレートは使いたくない
+- ホットリロードとかほしい
 - Textureなどをロードするのにdevサーバーは必要
   - Next.jsなどは若干やりすぎで、SSRやキャッシュ周りでいらない穴にハマりやすい
 - TypeScriptのサポートはほしい
@@ -27,7 +28,9 @@ three.jsをサクッと書き始める最小構成を作る方法をまとめま
 
 Reactを使う場合と、素のJSの場合を用意しました。
 
-# React版  
+## 実装
+
+### React版  
 
 1. 純粋SPAなReact + TS環境を作成
 
@@ -113,7 +116,7 @@ function App() {
 ![](/images/minimal-three-js-setup/red-box-rotate.gif)
 
 
-## Vanilla JS版  
+### Vanilla JS版  
 
 React版とほぼ同じような手順で進めていきます。
 
@@ -174,6 +177,8 @@ renderer.render(scene, camera);
 
 これで完成🎉
 
+![](/images/minimal-three-js-setup/red-box.png)
+
 7. おまけ: マウス操作をつける
 
 ```typescript:main.ts
@@ -194,4 +199,6 @@ function animate() {
 animate();
 ```
 
-これで、マウス操作でのズームと回転がつきます。
+これで、マウス操作でのズームと回転がつきます
+
+![](/images/minimal-three-js-setup/red-box-rotate.gif)
