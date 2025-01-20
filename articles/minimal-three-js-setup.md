@@ -115,3 +115,83 @@ function App() {
 
 ## Vanilla JS版  
 
+React版とほぼ同じような手順で進めていきます。
+
+1. Viteで環境を作成
+
+```bash
+npm create vite@latest {好きなプロジェクト名} -- --template vanilla-ts
+```
+
+2. 作ったプロジェクトに `cd` する
+
+3. `npm install`
+
+4. three.jsをinstall
+
+```bash
+npm install three
+```
+
+```bash
+npm install -D @types/three
+```
+
+5. （お好みで）生成されたファイルを整理
+
+`style.css` を↓ぐらいに書き換える（お好みで）
+```css:style.css
+body {
+  margin: 0;
+  padding: 0;
+}
+```
+
+6. `main.ts` を書き換え
+
+```typescript:main.ts
+import * as THREE from 'three';
+
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+camera.position.z = 5;
+
+const renderer = new THREE.WebGLRenderer();
+renderer.setClearColor(0xffffff);
+renderer.setSize(window.innerWidth, window.innerHeight);
+document.body.appendChild(renderer.domElement);
+
+scene.add(new THREE.AmbientLight(0xffffff, Math.PI / 2));
+
+const cube = new THREE.Mesh(
+  new THREE.BoxGeometry(1, 1, 1),
+  new THREE.MeshStandardMaterial({ color: 'red' })
+);
+scene.add(cube);
+
+renderer.render(scene, camera);
+```
+
+これで完成🎉
+
+7. おまけ: マウス操作をつける
+
+```typescript:main.ts
+import * as THREE from 'three';
+// @ts-ignore
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+
+//省略
+
+const controls = new OrbitControls(camera, renderer.domElement);
+
+function animate() {
+  requestAnimationFrame(animate);
+  controls.update();
+  renderer.render(scene, camera);
+}
+
+animate();
+```
+
+これで、マウス操作でのズームと回転がつきます。
